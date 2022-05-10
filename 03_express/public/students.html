@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<ul id="students">
+
+</ul>
+
+<div>
+    <input type="text" id="studentName" />
+    <input value="Create" type="button" id="createStudent" />
+</div>
+
+<script>
+    let studentsUl = document.getElementById("students")
+    let createStudentButton = document.getElementById("createStudent")
+    let studentName = document.getElementById("studentName")
+
+    createStudentButton.onclick = function () { createStudent(studentName.value) }
+
+    function createStudent(name) {
+        let student = {
+            full_name: name,
+        }
+
+        console.log(student)
+
+        fetch('/students', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(student)
+        })
+        .then(response => studentsUl.appendChild(createStudentLi(student)))
+        .catch(err => console.error(err))
+    }
+
+    function createStudentLi(student) {
+        let li = document.createElement("li")
+        li.dataset.id = student.id
+        li.innerHTML = student.full_name
+
+        return li
+    }
+
+    function renderStudents(students)
+    {
+        studentsUl.innerHTML = ''
+
+        for (let student of students) {
+            let li = createStudentLi(student)
+
+            studentsUl.appendChild(li)
+        }
+    }
+
+    function getStudents() {
+        fetch('/students')
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+            renderStudents(data)
+        })
+        .catch(err => console.error(err))
+    }
+
+    getStudents()
+</script>
+</body>
+</html>
