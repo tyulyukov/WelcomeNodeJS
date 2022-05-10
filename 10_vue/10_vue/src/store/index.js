@@ -4,6 +4,7 @@ import toasts from "@/store/toasts";
 import logs from "@/store/logs";
 import ajax from "@/store/ajax";
 import songLyrics from "@/store/modules/songLyrics";
+import carsData from "@/store/modules/carsData";
 
 export default createStore({
   strict: true,
@@ -12,6 +13,7 @@ export default createStore({
     toasts,
     logs,
     ajax,
-    songLyrics
+    songLyrics,
+    carsData
   }
 })

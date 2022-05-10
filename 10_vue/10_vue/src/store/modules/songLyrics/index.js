@@ -51,12 +51,12 @@ export default {
         dispatch('toastInfo', 'start')
         commit('setIsSongLyricsLoading', true)
 
-        dispatch('apiGetFromServer')
+        dispatch('apiGetSongsFromServer')
       }
     },
 
     // eslint-disable-next-line no-unused-vars
-    apiGetFromServer({state, commit, dispatch}) {
+    apiGetSongsFromServer({state, commit, dispatch}) {
       const options = {
         method: 'GET',
         headers: {
