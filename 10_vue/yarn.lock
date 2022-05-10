@@ -23,3 +23,8 @@ core-js@3.x.x:
   version "3.22.4"
   resolved "https://registry.npmjs.org/core-js/-/core-js-3.22.4.tgz"
   integrity sha512-1uLykR+iOfYja+6Jn/57743gc9n73EWiOnSJJ4ba3B4fOEYDBv25MagmEZBxTp5cWq4b/KPx/l77zgsp28ju4w==
+
+vue-toast-notification@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/vue-toast-notification/-/vue-toast-notification-3.0.2.tgz#4e2ec50a5ac51dc829eb5bfea1904457ff2db0b8"
+  integrity sha512-DY6yo8s2QFstEILZaoWAvP5ljzx4IHkFmFbuqEbStuNHMtk72XaHzTJb5QXK7HJFA0yneig9XN0r0luO0QIz0w==

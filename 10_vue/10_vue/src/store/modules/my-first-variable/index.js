@@ -18,6 +18,7 @@ export default {
     apiGetMyFirstVariable ({state, commit, dispatch}) {
       // get from server
       commit('setMyFirstVariable', '000111010001001101010101')
+      dispatch("toastSuccess", "Ok")
     }
   },
 }
