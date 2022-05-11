@@ -5,6 +5,7 @@ import logs from "@/store/logs";
 import ajax from "@/store/ajax";
 import songLyrics from "@/store/modules/songLyrics";
 import carsData from "@/store/modules/carsData";
+import novaPoshta from "@/store/modules/novaPoshta";
 
 export default createStore({
   strict: true,
@@ -14,6 +15,7 @@ export default createStore({
     logs,
     ajax,
     songLyrics,
-    carsData
+    carsData,
+    novaPoshta
   }
 })
