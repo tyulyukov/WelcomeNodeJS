@@ -4,7 +4,8 @@ let path = require('path');
 let cookieParser = require('cookie-parser');
 let logger = require('morgan');
 let bodyParser = require('body-parser');
-let multer = require('multer')
+let multer = require('multer');
+let cors = require("cors");
 
 let indexRouter = require('./routes/index');
 let usersRouter = require('./routes/users');
@@ -17,6 +18,8 @@ let app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
+
+app.use(cors())
 
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -34,11 +37,16 @@ const storageConfig = multer.diskStorage({
 });
 app.use(multer({storage:storageConfig}).single("image"));
 
+const auth = require("./controllers/auth")
+app.use(auth.middlewareAuth)
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/students', studentsRouter);
 app.use('/api/portfolios', portfoliosRouter);
 app.use('/media', mediaConverterRouter);
+app.post('/api/auth', auth.authByEmail);
+app.post ('/api/register', auth.registerUser);
 
 let mongoose = require("mongoose")
 let connectionString = "mongodb+srv://tyulyukov:buDFZ4ws9ShY3rw7@cluster0.docye.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";

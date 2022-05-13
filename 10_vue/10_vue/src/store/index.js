@@ -6,6 +6,7 @@ import ajax from "@/store/ajax";
 import songLyrics from "@/store/modules/songLyrics";
 import carsData from "@/store/modules/carsData";
 import novaPoshta from "@/store/modules/novaPoshta";
+import auth from "@/store/modules/auth";
 
 export default createStore({
   strict: true,
@@ -16,6 +17,7 @@ export default createStore({
     ajax,
     songLyrics,
     carsData,
-    novaPoshta
+    novaPoshta,
+    auth
   }
 })

@@ -1,16 +1,15 @@
 <template>
-  <div class="home">
-
-  </div>
+  <LoginForm/>
 </template>
 
 <script>
 // @ is an alias to /src
+import LoginForm from "@/components/auth/LoginForm";
 
 export default {
-  name: 'HomeView',
+  name: 'LoginView',
   components: {
-
+    LoginForm,
   }
 }
 </script>
