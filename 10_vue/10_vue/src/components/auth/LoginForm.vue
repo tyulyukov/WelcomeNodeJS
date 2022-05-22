@@ -40,7 +40,7 @@
                        class="img-fluid" alt="Sample image">
                 </div>
               </div>
-            </div>6
+            </div>
           </div>
         </div>
       </div>
